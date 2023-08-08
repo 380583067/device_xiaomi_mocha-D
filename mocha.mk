@@ -97,7 +97,7 @@ PRODUCT_COPY_FILES += \
 # Configstore HAL
 PRODUCT_PACKAGES += \
     android.hardware.configstore@1.1-impl \
-    android.hardware.configstore@1.1-service
+    
 
 # Custom tiles
 PRODUCT_PACKAGES += \
@@ -111,7 +111,7 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
 # DRM HAL
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
-    android.hardware.drm@1.0-service
+    
 
 # Doze
 PRODUCT_PACKAGES += \
@@ -148,8 +148,7 @@ $(call inherit-product, device/xiaomi/mocha/go_mocha.mk)
 # Health HAL
 PRODUCT_PACKAGES += \
     android.hardware.health@2.0-impl \
-    android.hardware.health@2.0-service
-
+   
 # HIDL
 PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \
@@ -175,7 +174,7 @@ PRODUCT_PACKAGES += \
 # Keymaster
 PRODUCT_PACKAGES += \
     android.hardware.keymaster@3.0-impl \
-    android.hardware.keymaster@3.0-service
+    
 
 # Light
 PRODUCT_PACKAGES += \
@@ -339,7 +338,7 @@ PRODUCT_COPY_FILES += \
 #    $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4354/device-bcm.mk)
 
 PRODUCT_PACKAGES += \
-    android.hardware.wifi@1.0-service.legacy \
+    android.hardware.wifi@1.0-service \
     hostapd \
     conn_init \
     wpa_supplicant \
