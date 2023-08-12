@@ -82,7 +82,6 @@ TARGET_USES_MKE2FS := true
 # Graphics
 USE_OPENGL_RENDERER := true
 BOARD_DISABLE_TRIPLE_BUFFERED_DISPLAY_SURFACES := true
-TARGET_DISABLE_POSTRENDER_CLEANUP := true
 
 # Health _ Android-9.0
 #DEVICE_FRAMEWORK_MANIFEST_FILE := system/libhidl/vintfdata/manifest_healthd_exclude.xml
@@ -92,7 +91,7 @@ TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS := 0x02000000
 
 # HIDL Manifest
 DEVICE_MANIFEST_FILE := $(LOCAL_PATH)/manifest.xml
-PRODUCT_ENFORCE_VINTF_MANIFEST_OVERRIDE := true
+#PRODUCT_ENFORCE_VINTF_MANIFEST_OVERRIDE := true
 
 # Include
 TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
@@ -163,6 +162,7 @@ BOARD_SEPOLICY_DIRS += $(LOCAL_PATH)/sepolicy/mocha \
 # SHIMS
 TARGET_LD_SHIM_LIBS := \
     /system/vendor/lib/hw/hwcomposer.tegra.so|/system/vendor/lib/libshim_camera.so \
+    /system/vendor/lib/mediadrm/libwvdrmengine.so|/system/vendor/lib/libprotobuf_shim.so \
     /system/vendor/lib/libnvgr.so|libshim_atomic.so
 
 # ThermalHAL
@@ -177,11 +177,10 @@ BOARD_HOSTAPD_DRIVER             := NL80211
 BOARD_HOSTAPD_PRIVATE_LIB        := lib_driver_cmd_bcmdhd
 WIFI_DRIVER_FW_PATH_STA          := "/vendor/firmware/fw_bcmdhd.bin"
 WIFI_DRIVER_FW_PATH_AP           := "/vendor/firmware/fw_bcmdhd_apsta.bin"
-WIFI_DRIVER_FW_PATH_P2P          := "/vendor/firmware/fw_bcmdhd.bin"
 WIFI_DRIVER_FW_PATH_PARAM        := "/sys/module/bcmdhd/parameters/firmware_path"
-WIFI_DRIVER_MODULE_ARG           := "iface_name=wlan0"
-WIFI_DRIVER_MODULE_NAME          := "bcmdhd"
-#WIFI_HIDL_FEATURE_DISABLE_AP_MAC_RANDOMIZATION := true
+#WIFI_DRIVER_MODULE_ARG           := "iface_name=wlan0"
+#WIFI_DRIVER_MODULE_NAME          := "bcmdhd"
+WIFI_HIDL_FEATURE_DISABLE_AP_MAC_RANDOMIZATION := true
 
 # workaround for devices that uses old GPU blobs
 BOARD_EGL_WORKAROUND_BUG_10194508 := true

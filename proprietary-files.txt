@@ -46,6 +46,21 @@ etc/hdcpsrm/hdcp1x.srm
 etc/hdcpsrm/hdcp2x.srm
 etc/hdcpsrm/hdcp2xtest.srm
 
+lib/extractors/libmmparserextractor.so
+lib/extractors/libsaacextractor.so
+lib/extractors/libsaviextractor.so
+lib/extractors/libsecamrextractor.so
+lib/extractors/libsecmidiextractor.so
+lib/extractors/libsecmkvextractor.so
+lib/extractors/libsecmp3extractor.so
+lib/extractors/libsecmp4extractor.so
+lib/extractors/libsecmpeg2extractor.so
+lib/extractors/libsecoggextractor.so
+lib/extractors/libsecwavextractor.so
+lib/extractors/libsflacextractor.so
+lib/extractors/libsflvextractor.so
+lib/extractors/libsmkvextractor.so
+lib/extractors/libswmfextractor.so
 
 lib/libbeautify.so
 lib/libbt-client-api.so

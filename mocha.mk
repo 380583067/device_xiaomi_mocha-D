@@ -31,9 +31,9 @@ PRODUCT_COPY_FILES += \
  USE_XML_AUDIO_POLICY_CONF := 1
 
  PRODUCT_PACKAGES += \
-	android.hardware.audio@2.0 \
-	android.hardware.audio@2.0-impl \
-	android.hardware.audio.effect@2.0-impl \
+	android.hardware.audio@6.0 \
+	android.hardware.audio@6.0-impl \
+	android.hardware.audio.effect@6.0-impl \
 	libmocha_audio.so
 	
 PRODUCT_COPY_FILES += \
@@ -66,9 +66,7 @@ PRODUCT_PACKAGES += \
     libbt-vendor \
     libldacBT_dec \
     android.hardware.bluetooth@1.0-impl \
-    android.hardware.bluetooth@1.0-service \
-    android.hardware.bluetooth.a2dp@1.0-impl \
-    android.hardware.bluetooth.audio@2.0-impl
+    android.hardware.bluetooth@1.0-service
 
 # Camera
 #PRODUCT_COPY_FILES += \
@@ -97,7 +95,7 @@ PRODUCT_COPY_FILES += \
 # Configstore HAL
 PRODUCT_PACKAGES += \
     android.hardware.configstore@1.1-impl \
-    
+    android.hardware.configstore@1.1-service
 
 # Custom tiles
 PRODUCT_PACKAGES += \
@@ -106,12 +104,13 @@ PRODUCT_PACKAGES += \
 
 # Dexpreopt
 PRODUCT_DEXPREOPT_SPEED_APPS += \
-    DocumentsUI
+    SystemUI
 
 # DRM HAL
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
-    
+    android.hardware.drm@1.0-service \
+    libprotobuf_shim
 
 # Doze
 PRODUCT_PACKAGES += \
@@ -148,7 +147,8 @@ $(call inherit-product, device/xiaomi/mocha/go_mocha.mk)
 # Health HAL
 PRODUCT_PACKAGES += \
     android.hardware.health@2.0-impl \
-   
+    android.hardware.health@2.0-service
+
 # HIDL
 PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \
@@ -162,9 +162,9 @@ PRODUCT_PACKAGES += \
     libhwbinder
 
 # HIDL Manifest
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/manifest.xml:syst$(TARGET_COPY_OUT_VENDOR)/manifest.xml
-
+#PRODUCT_COPY_FILES += \
+#    $(LOCAL_PATH)/manifest.xml:system/vendor/manifest.xml
+    
 # Key layouts
 PRODUCT_PACKAGES += \
     tegra-kbc.kl \
@@ -174,7 +174,7 @@ PRODUCT_PACKAGES += \
 # Keymaster
 PRODUCT_PACKAGES += \
     android.hardware.keymaster@3.0-impl \
-    
+    android.hardware.keymaster@3.0-service
 
 # Light
 PRODUCT_PACKAGES += \
@@ -241,13 +241,13 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.gyroscope.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.gyroscope.xml \
     frameworks/native/data/etc/android.hardware.sensor.light.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.light.xml \
     frameworks/native/data/etc/android.hardware.sensor.proximity.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.proximity.xml \
-    frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
+    frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.accessory.xml \
     frameworks/native/data/etc/android.hardware.usb.host.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.host.xml \
     frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml \
     frameworks/native/data/etc/android.hardware.wifi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
-    frameworks/native/data/etc/tablet_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/tablet_core_hardware.xml \
+    frameworks/native/data/etc/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml \
     frameworks/native/data/etc/android.hardware.sensor.stepcounter.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.stepcounter.xml \
     frameworks/native/data/etc/android.hardware.sensor.stepdetector.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.stepdetector.xml \
     frameworks/native/data/etc/android.software.freeform_window_management.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.freeform_window_management.xml\
@@ -294,12 +294,8 @@ PRODUCT_COPY_FILES += \
 
 # Sensors
 PRODUCT_PACKAGES += \
-    android.hardware.sensors@1.0-impl \
     sensors.tegra
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/sensors/_hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/_hals.conf
-
+	
 # System properties
 -include $(LOCAL_PATH)/system_prop.mk
 
@@ -319,7 +315,7 @@ PRODUCT_PACKAGES += \
 
 # USB HAL
 PRODUCT_PACKAGES += \
-    android.hardware.usb@1.0-service.basic
+    android.hardware.usb@1.0-service-basic
 
 # Vibrator
 PRODUCT_PACKAGES += \
@@ -328,14 +324,18 @@ PRODUCT_PACKAGES += \
 # Vendor seccomp policy files for media components:
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/seccomp/mediaextractor.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaextractor.policy
-    
+
+# Widevine DRM
+PRODUCT_PACKAGES += \
+    libprotobuf_shim
+
 # Wifi
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/wifi/dhcpcd.conf:$(TARGET_COPY_OUT_VENDOR)/etc/dhcpcd/dhcpcd.conf \
-   
+    $(LOCAL_PATH)/wifi/dhcpcd.conf:$(TARGET_COPY_OUT_VENDOR)/etc/dhcpcd/dhcpcd.conf
+
 # Wifi (All Shield devices xurrently use broadcom wifi / bluetooth modules)
-#    $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/config/config-bcm.mk)
-#    $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4354/device-bcm.mk)
+    $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/config/config-bcm.mk)
+    $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4354/device-bcm.mk)
 
 PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service \
