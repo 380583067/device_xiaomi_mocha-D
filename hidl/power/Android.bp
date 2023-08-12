@@ -21,6 +21,7 @@ cc_binary {
         "libcutils",
         "libhardware",
         "libhidlbase",
+//        "libhidltransport",
         "android.hardware.power@1.0",
          ],
 }
