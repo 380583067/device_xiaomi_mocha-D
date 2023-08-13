@@ -8,9 +8,7 @@
             <instance>default</instance>
         </interface>
         <fqname>@6.0::IDevicesFactory/default</fqname>
-        <fqname>@4.0::IDevicesFactory/default</fqname>
-        <fqname>@2.0::IDevicesFactory/default</fqname>
-    </hal>
+        </hal>
  <hal format="hidl">
         <name>android.hardware.audio.effect</name>
         <transport arch="32">passthrough</transport>
@@ -20,9 +18,7 @@
             <instance>default</instance>
         </interface>
         <fqname>@6.0::IEffectsFactory/default</fqname>
-        <fqname>@4.0::IEffectsFactory/default</fqname>
-        <fqname>@2.0::IEffectsFactory/default</fqname>
-    </hal>
+        </hal>
 <hal format="hidl">
         <name>android.hardware.bluetooth</name>
         <transport arch="32">passthrough</transport>
