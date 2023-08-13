@@ -1,14 +1,13 @@
 diff --git a/services/surfaceflinger/SurfaceFlinger.cpp b/services/surfaceflinger/SurfaceFlinger.cpp
-index db26808cc..7899ca194 100644
+index 878761b07..06dc302d6 100644
 --- a/services/surfaceflinger/SurfaceFlinger.cpp
 +++ b/services/surfaceflinger/SurfaceFlinger.cpp
-@@ -353,6 +353,9 @@ SurfaceFlinger::SurfaceFlinger(Factory& factory) : SurfaceFlinger(factory, SkipI
+@@ -398,6 +398,8 @@ SurfaceFlinger::SurfaceFlinger(Factory& factory) : SurfaceFlinger(factory, SkipI
      mDebugRegion = atoi(value);
  
      ALOGI_IF(mDebugRegion, "showupdates enabled");
-+    
-+     property_get("debug.sf.disable_hwc", value, "0");
-+     mDebugDisableHWC = atoi(value);
++    property_get("debug.sf.disable_hwc", value, "0");
++    mDebugDisableHWC = atoi(value);
  
      // DDMS debugging deprecated (b/120782499)
      property_get("debug.sf.ddms", value, "0");
