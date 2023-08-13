@@ -119,3 +119,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Vendor Patch Level
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.build.security_patch=2018-01-05
+
+# fastbootd
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.fastbootd.available=true
