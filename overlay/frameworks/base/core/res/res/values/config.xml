@@ -313,5 +313,8 @@
                  <item>com.google.android.gms/com.google.android.gms.nearby.discovery.service.DiscoveryService</item> 
     </string-array>
    
+ <!-- AOSP WFD -->
+    <bool name="config_enableWifiDisplay">true</bool>
+
 
 </resources>
