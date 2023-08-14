@@ -38,6 +38,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=320 \
     persist.tegra.compositor=surfaceflinger \
     persist.tegra.decompression=cde-client \
+    ro.surface_flinger.use_frame_rate_api=false \
     ro.hardware.vulkan=nvgpu \
     debug.sf.latch_unsignaled=1 \
     debug.sf.disable_backpressure=1 \
