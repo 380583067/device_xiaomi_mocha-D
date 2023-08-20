@@ -148,11 +148,6 @@ PRODUCT_PACKAGES += \
 #GO
 $(call inherit-product, device/xiaomi/mocha/go_mocha.mk)
 
-# Health HAL
-PRODUCT_PACKAGES += \
-    android.hardware.health@2.0-impl \
-    android.hardware.health@2.0-service
-
 # HIDL
 PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \
@@ -165,9 +160,16 @@ PRODUCT_PACKAGES += \
     libhidltransport \
     libhwbinder
 
+# Healthd
+PRODUCT_PACKAGES += \
+    android.hardware.health@2.0-service\
+    android.hardware.health@2.1-impl \
+    android.hardware.health@2.1-impl.recovery \
+    android.hardware.health@2.1-service
+
 # HIDL Manifest
-#PRODUCT_COPY_FILES += \
-#    $(LOCAL_PATH)/manifest.xml:system/vendor/manifest.xml
+vintf_fragments += \
+    $(LOCAL_PATH)/manifest.xml:system/vendor/manifest.xml
     
 # Key layouts
 PRODUCT_PACKAGES += \
@@ -309,8 +311,7 @@ PRODUCT_PACKAGES += \
 
 # Thermal
 PRODUCT_PACKAGES += \
-    android.hardware.thermal@1.0-service-nvidia \
-    thermalhal.tn8.xml
+   thermalhal.tn8.xml
 
 # TimeKeep
 PRODUCT_PACKAGES += \
