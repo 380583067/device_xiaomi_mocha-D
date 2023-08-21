@@ -168,7 +168,6 @@ BOARD_SEPOLICY_DIRS += $(LOCAL_PATH)/sepolicy/mocha \
 # SHIMS
 TARGET_LD_SHIM_LIBS := \
     /system/vendor/lib/hw/hwcomposer.tegra.so|/system/vendor/lib/libshim_camera.so \
-    /system/vendor/lib/mediadrm/libwvdrmengine.so|/system/vendor/lib/libprotobuf_shim.so \
     /system/vendor/lib/libnvgr.so|libshim_atomic.so
 
 # ThermalHAL
