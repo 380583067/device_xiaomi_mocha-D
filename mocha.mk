@@ -57,10 +57,11 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/initfiles/bt_loader.sh:system/bin/bt_loader.sh
 
 PRODUCT_PACKAGES += \
-    libbt-vendor \
-    libldacBT_dec \
     android.hardware.bluetooth@1.0-impl \
-    android.hardware.bluetooth@1.0-service
+    android.hardware.bluetooth@1.0-service \
+    libbt-vendor \
+    libldacBT_bco 
+    
 
 # Camera
 #PRODUCT_COPY_FILES += \
@@ -168,7 +169,6 @@ PRODUCT_PACKAGES += \
     tegra-kbc.kl \
     Vendor_0955_Product_7210.kl
 
-
 # Keymaster
 PRODUCT_PACKAGES += \
     android.hardware.keymaster@3.0-impl \
@@ -213,11 +213,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/permissions/com.nvidia.feature.opengl4.xml:system/etc/permissions/com.nvidia.feature.opengl4.xml \
     $(LOCAL_PATH)/permissions/com.nvidia.nvsi.xml:system/etc/permissions/com.nvidia.nvsi.xml
 
-
 #OMX(SOFTWARE)
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.stagefright.ccodec=0
-
 
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += \
