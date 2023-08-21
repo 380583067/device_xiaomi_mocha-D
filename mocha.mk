@@ -104,8 +104,7 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
     android.hardware.drm@1.0-service \
-    libprotobuf_shim
-
+   
 # Doze
 PRODUCT_PACKAGES += \
     XiaomiDoze
@@ -266,6 +265,10 @@ PRODUCT_PACKAGES += \
     android.hardware.power@1.0-service.mocha \
     android.hardware.vendor.lineage.power@1.0-impl \
     power.tegra
+
+# Ship libprotobuf-cpp-lite-v29.so for fix _ZN6google8protobuf8internal13empty_string_E
+PRODUCT_COPY_FILES += \
+    prebuilts/vndk/v29/arm/arch-arm-armv7-a-neon/shared/vndk-core/libprotobuf-cpp-lite.so:$(TARGET_COPY_OUT_VENDOR)/lib/libprotobuf-cpp-lite-v29.so \
 
 # Ramdisk
 PRODUCT_PACKAGES += \
