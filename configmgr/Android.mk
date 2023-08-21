@@ -28,6 +28,7 @@ LOCAL_CFLAGS += -Werror -Wno-error=unused-parameter -Wno-unused-parameter
 LOCAL_C_INCLUDES += \
 	external/tinycompress/include \
 	external/tinyhal/include \
+	device/xiaomi/mocha/tinyalsa/include \
 	external/expat/lib \
 	$(call include-path-for, audio-utils)
 
@@ -37,10 +38,10 @@ LOCAL_SRC_FILES := \
 LOCAL_SHARED_LIBRARIES := \
 	libcutils \
 	libutils \
-	libdl \
-	liblog \
-	libexpat \
-	libtinyalsa_mocha
+	libdl	\
+	liblog	\
+	libexpat	\
+	libtinyalsa_mocha	\
 
 include $(BUILD_SHARED_LIBRARY)
 
