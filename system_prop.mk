@@ -34,7 +34,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Graphics
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.opengles.version=196609\
+    ro.opengles.version=196610\
     ro.sf.lcd_density=320 \
     persist.tegra.compositor=surfaceflinger \
     persist.tegra.decompression=cde-client \
@@ -48,11 +48,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.zygote.disable_gl_preload=true \
     persist.vendor.tegra.composite.policy=composite-yuv \
     debug.hwc.force_gpu=1 \
-    persist.sys.ui.hw=false \
+    persist.sys.ui.hw=true \
     debug.hwui.use_buffer_age=false \
     debug.hwui.renderer=opengl \
     ro.surface_flinger.max_frame_buffer_acquired_buffers=2 \
     debug.sf.disable_hwc=1
+
 
 # Lineage genuine
 PRODUCT_PROPERTY_OVERRIDES += \
