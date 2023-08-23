@@ -300,7 +300,10 @@ PRODUCT_COPY_FILES += \
 # Sensors
 PRODUCT_PACKAGES += \
     sensors.tegra
-	
+
+#Soong namespaces
+PRODUCT_SOONG_NAMESPACES += device/xiaomi/mocha
+
 # System properties
 -include $(LOCAL_PATH)/system_prop.mk
 
