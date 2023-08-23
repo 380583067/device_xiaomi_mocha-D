@@ -18,6 +18,9 @@
 # Path
 LOCAL_PATH := device/xiaomi/mocha
 
+# Allow duplicate rules to override them
+BUILD_BROKEN_DUP_RULES := true
+
 # Audio
 USE_CUSTOM_AUDIO_POLICY  := 1
 BOARD_USES_GENERIC_AUDIO := false
