@@ -152,6 +152,7 @@ MAX_EGL_CACHE_ENTRY_SIZE := 262144
 TARGET_POWERHAL_VARIANT := tegra
 
 # Recovery
+LZMA_RAMDISK_TARGETS := recovery
 TARGET_RECOVERY_DEVICE_DIRS += device/xiaomi/mocha
 TARGET_RECOVERY_FSTAB := device/xiaomi/mocha/initfiles/fstab.tn8
 BOARD_NO_SECURE_DISCARD := true
