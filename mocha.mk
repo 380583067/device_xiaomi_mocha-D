@@ -139,8 +139,8 @@ PRODUCT_PACKAGES += \
     libshim_zw \
     libshim_atomic
 
-#GO
-$(call inherit-product, device/xiaomi/mocha/go_mocha.mk)
+# Use GO
+$(call inherit-product, $(SRC_TARGET_DIR)/product/go_defaults.mk)
 
 # HIDL
 PRODUCT_PACKAGES += \
