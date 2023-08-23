@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2016 The Android Open Source Project
+<!-- Copyright (C) 2010 The Android Open Source Project
+
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
@@ -12,7 +13,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<!DOCTYPE MediaSettings SYSTEM "/vendor/etc/media_profiles_V1_0.dtd">
+<!DOCTYPE MediaSettings SYSTEM "/system/etc/media_profiles_V1_0.dtd">
 <!--
      This file is used to declare the multimedia profiles and capabilities
      on an android-powered device.
@@ -326,66 +327,6 @@
 
     <EncoderProfile quality="timelapsehigh" fileFormat="3gp" duration="30">
       <Video codec="h264"
-             bitRate="8000000"
-             width="1280"
-             height="720"
-             frameRate="30"
-             profile="8"
-             level="512"
-             numBFrames="0" />
-
-      <!--
-            The Audio part of the profile will not be used since time lapse mode
-            does not capture audio
-      -->
-      <Audio codec="aac"
-             bitRate="96000"
-             sampleRate="48000"
-             channels="2" />
-    </EncoderProfile>
-
-    <EncoderProfile quality="timelapseqcif" fileFormat="3gp" duration="30">
-      <Video codec="h264"
-             bitRate="384000"
-             width="176"
-             height="144"
-             frameRate="30"
-             profile="8"
-             level="1"
-             numBFrames="0" />
-
-      <!--
-            The Audio part of the profile will not be used since time lapse mode
-            does not capture audio
-      -->
-      <Audio codec="amrnb"
-             bitRate="12200"
-             sampleRate="8000"
-             channels="1" />
-    </EncoderProfile>
-
-    <EncoderProfile quality="timelapsecif" fileFormat="3gp" duration="30">
-      <Video codec="h264"
-             bitRate="1536000"
-             width="352"
-             height="288"
-             frameRate="30"
-             profile="8"
-             level="32"
-             numBFrames="0" />
-
-      <!--
-            The Audio part of the profile will not be used since time lapse mode
-            does not capture audio
-      -->
-      <Audio codec="amrnb"
-             bitRate="12200"
-             sampleRate="8000"
-             channels="1" />
-    </EncoderProfile>
-
-    <EncoderProfile quality="timelapse480p" fileFormat="3gp" duration="30">
-      <Video codec="h264"
              bitRate="4000000"
              width="640"
              height="480"
@@ -514,11 +455,6 @@
       Please note that the values are in decimal.
       These values are for video encoder.
   -->
-  <!--
-      Codec = h.264, Baseline profile, level 4
-  -->
-  <ExportVideoProfile name="h264" profile="1"
-   level="2048" />
   <!--
       Codec = h.263, Baseline profile, level 1
   -->
