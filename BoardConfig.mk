@@ -132,7 +132,7 @@ TARGET_KERNEL_ADDITIONAL_FLAGS := \
     HOSTCFLAGS="-fuse-ld=lld -Wno-unused-command-line-argument"
 
 # LINEAGEHW
-BOARD_HARDWARE_CLASS := $(LOCAL_PATH)/lineagehw
+JAVA_SOURCE_OVERLAYS := org.lineageos.hardware|$(LOCAL_PATH)/lineagehw|**/*.java
 
 # Malloc
 MALLOC_SVELTE := true
