@@ -4,6 +4,9 @@ $(call inherit-product, device/xiaomi/mocha/full_mocha.mk)
 # Inherit some common aosp stuff.
 $(call inherit-product, vendor/aosp/config/common.mk)
 
+
+TARGET_GAPPS_ARCH := arm
+
 PRODUCT_NAME := aosp_mocha
 PRODUCT_DEVICE := mocha
 PRODUCT_BAND := xiaomi
