@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2018 The LineageOS Project
+# Copyright (C) 2018 The aospOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,9 +14,9 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_mocha.mk
+    $(LOCAL_DIR)/aosp_mocha.mk
     
 COMMON_LUNCH_CHOICES := \
-    lineage_mocha-user \
-    lineage_mocha-userdebug \
-    lineage_mocha-eng
+    aosp_mocha-user \
+    aosp_mocha-userdebug \
+    aosp_mocha-eng
