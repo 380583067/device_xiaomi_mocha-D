@@ -31,8 +31,8 @@ PRODUCT_COPY_FILES += \
     
 PRODUCT_PACKAGES += \
     android.hardware.audio@6.0 \
-	android.hardware.audio@6.0-impl \
-	android.hardware.audio.effect@6.0-impl \
+    android.hardware.audio@6.0-impl \
+    android.hardware.audio.effect@6.0-impl \
     audio.a2dp.default \
     audio.usb.default \
     audio.r_submix.default \
@@ -46,6 +46,7 @@ PRODUCT_PACKAGES += \
     libstlport \
     libmocha_audio \
     xaplay \
+    enctune.conf
 
 # Bluetooth
 PRODUCT_COPY_FILES += \
@@ -57,7 +58,6 @@ PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0-service \
     libbt-vendor \
     libldacBT_bco 
-    
 
 # Camera
 #PRODUCT_COPY_FILES += \
@@ -90,8 +90,8 @@ PRODUCT_PACKAGES += \
 
 # Custom tiles
 #PRODUCT_PACKAGES += \
-    ChargerTile \
-    PerformanceTile
+#    ChargerTile \
+#    PerformanceTile
 
 # Dexpreopt
 PRODUCT_DEXPREOPT_SPEED_APPS += \
@@ -105,7 +105,8 @@ PRODUCT_PACKAGES += \
    
 # Doze
 PRODUCT_PACKAGES += \
-    XiaomiDoze
+    XiaomiDoze \
+    XiaomiParts
 
 # fastbootd
 PRODUCT_PACKAGES += \
@@ -254,7 +255,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.stepdetector.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.stepdetector.xml \
     frameworks/native/data/etc/android.software.app_widgets.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.app_widgets.xml
 
-
 PRODUCT_CHARACTERISTICS := tablet
 
 # PHS
@@ -355,11 +355,11 @@ PRODUCT_PACKAGES += \
     wpa_supplicant \
     wpa_supplicant.conf
 
-PRODUCT_PACKAGES += \
-    wireguard \
-    wireguard.rc
+#PRODUCT_PACKAGES += \
+#    wireguard \
+#    wireguard.rc
 
 # Vendor security patch level
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.lineage.build.vendor_security_patch=2018-01-05 \
+#    ro.lineage.build.vendor_security_patch=2018-01-05 \
     ro.vendor.build.security_patch=2018-01-05
