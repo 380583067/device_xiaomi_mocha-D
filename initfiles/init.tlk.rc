@@ -16,12 +16,17 @@
 # Starts as user=root but drops to user=system internally
 # after necessary capabilities are established.
 #
-service tlk_daemon /vendor/bin/tlk_daemon --storagedir /data
+service tlk_daemon /vendor/bin/tlk_daemon --storagedir /data/vendor
     class main
     group keystore
     disabled
 
-service storageproxyd /vendor/bin/storageproxyd -d /dev/trusty-ipc-dev0 -p /data/vendor/ss -r /dev/block/mmcblk0rpmb
+service tlk_daemon_non_treble /vendor/bin/tlk_daemon --storagedir /data
+    class main
+    group keystore
+    disabled
+
+service storageproxyd /vendor/bin/storageproxyd -d /dev/trusty-ipc-dev0 -p /data/vendor/ss -r /dev/mmcblk0rpmb
     class core
     group keystore
     disabled
@@ -36,8 +41,14 @@ service storageproxyd_hv /vendor/bin/storageproxyd -d /dev/trusty-ipc-dev0 -p /d
 #
 # One shot command that queries status of secure storage.
 #
+service ss_status /vendor/bin/run_ss_status.sh /data/vendor/ss/slog
+    class main
+    user system
+    group keystore
+    oneshot
+    disabled
 
-service ss_status /vendor/bin/run_ss_status.sh /data/ss/slog
+service ss_status_non_treble /vendor/bin/run_ss_status.sh /data/ss/slog
     class main
     user system
     group keystore

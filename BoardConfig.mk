@@ -56,9 +56,10 @@ TARGET_SCREEN_WIDTH := 1536
 TARGET_BOOTANIMATION_HALF_RES := true
 
 # Camera
-#TARGET_HAS_LEGACY_CAMERA_HAL1 := true
-#TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
-#TARGET_LD_SHIM_LIBS += /system/vendor/lib/hw/camera.tegra.so|/system/vendor/lib/libcamera_shim.so
+TARGET_HAS_LEGACY_CAMERA_HAL1 := true
+TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
+TARGET_LD_SHIM_LIBS += /system/vendor/lib/hw/camera.tegra.so|/system/vendor/lib/libcamera_shim.so
+#TARGET_LD_SHIM_LIBS += /system/vendor/lib/hw/camera.vendor.tegra.so|/system/vendor/lib/libcamera_shim.so
 
 # dexpre-opt
   ifeq ($(HOST_OS),linux)
@@ -75,8 +76,8 @@ BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 BUILD_BROKEN_PREBUILT_ELF_FILES := true
 LOCAL_CHECK_ELF_FILES := false
 
-# FM
-BOARD_HAVE_BCM_FM := false
+#FM
+BOARD_HAVE_BCM_FM := true
 
 # FS
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4

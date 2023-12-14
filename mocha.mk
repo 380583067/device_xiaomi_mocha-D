@@ -16,9 +16,6 @@
 
 LOCAL_PATH := device/xiaomi/mocha
 
-$(call inherit-product-if-exists, vendor/xiaomi/mocha/mocha-vendor.mk)
-$(call inherit-product-if-exists, vendor/xiaomi/mocha/consolemode-blobs.mk)
-
 # APN
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/etc/apns-conf.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/apns-conf.xml
@@ -56,24 +53,21 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0-impl \
     android.hardware.bluetooth@1.0-service \
-    libbt-vendor \
     libldacBT_bco 
 
 # Camera
-#PRODUCT_COPY_FILES += \
-#    $(LOCAL_PATH)/camera/nvcamera.conf:$(TARGET_COPY_OUT_VENDOR)/etc/nvcamera.conf \
-#    $(LOCAL_PATH)/camera/model_frontal.xml:$(TARGET_COPY_OUT_VENDOR)/etc/model_frontal.xml
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/camera/nvcamera.conf:$(TARGET_COPY_OUT_VENDOR)/etc/nvcamera.conf \
+    $(LOCAL_PATH)/camera/model_frontal.xml:$(TARGET_COPY_OUT_VENDOR)/etc/model_frontal.xml
 
-#PRODUCT_PACKAGES += \
-#    android.hardware.camera.provider@2.4-impl \
-#    camera.device@1.0-impl \
-#    camera.tegra \
-#    libmocha_camera \
-#    libmocha_omx \
-#    libpowerservice_client \
-#    libmocha_libc
-# Camera
 PRODUCT_PACKAGES += \
+    android.hardware.camera.provider@2.4-impl \
+    camera.device@3.2-impl \
+    camera.tegra \
+#    libmocha_camera \
+    libmocha_omx \
+    libpowerservice_client \
+    libmocha_libc \
     libshim_camera
 
 # Comm Permissions
@@ -117,8 +111,11 @@ PRODUCT_PACKAGES += \
     setup_fs
 
 # FM
-#PRODUCT_PACKAGES += \
-#    android.hardware.broadcastradio@1.0-impl
+PRODUCT_PACKAGES += \
+    android.hardware.broadcastradio@1.0-impl \
+    FMRadio \
+    brcm-uim-sysfs \
+    libfmjni
 
 # Graphics
 PRODUCT_AAPT_CONFIG += xlarge large
@@ -165,16 +162,17 @@ PRODUCT_PACKAGES += \
 # HIDL Manifest
 vintf_fragments += \
     $(LOCAL_PATH)/manifest.xml:system/vendor/manifest.xml
-    
-# Key layouts
-PRODUCT_PACKAGES += \
-    tegra-kbc.kl \
-    Vendor_0955_Product_7210.kl
 
 # Keymaster
 PRODUCT_PACKAGES += \
     android.hardware.keymaster@3.0-impl \
     android.hardware.keymaster@3.0-service
+
+# keylayout
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/keylayout/tegra-kbc.kl:system/usr/keylayout/tegra-kbc.kl \
+    $(LOCAL_PATH)/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
+    $(LOCAL_PATH)/keylayout/Vendor_0955_Product_7210.kl:system/usr/keylayout/Vendor_0955_Product_7210.kl
 
 # Light
 PRODUCT_PACKAGES += \

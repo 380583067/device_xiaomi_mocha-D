@@ -12,6 +12,7 @@ on early-init
     mount debugfs debugfs /sys/kernel/debug mode=0755
 
 on init
+    mkdir /dev/camera 0755 media camera
     mkdir /mnt/media_rw/sdcard1 0700 media_rw media_rw
     mkdir /storage/sdcard1 0700 root sdcard_r
     
@@ -62,10 +63,14 @@ on post-fs-data
     mkdir /data/vendor/dhcp 0770 dhcp dhcp
     
     mkdir /data/vendor/hwc 0771 system graphics
-    
-     mkdir /data/vendor/mediadrm 0770 mediadrm mediadrm
 
-    mkdir /data/vendor/nvcam 0700 media camera
+    mkdir /data/vendor/mediadrm 0770 mediadrm mediadrm
+
+    # create directory for camera calibration data
+    mkdir /mnt/vendor/factory/camera 0666 system system
+
+    # create directory for camera cached data
+    mkdir /data/vendor/nvcam 0700 cameraserver camera
 
     chown dhcp dhcp /data/vendor/dhcp
 
@@ -232,6 +237,6 @@ service bugreport /system/bin/dumpstate -d -p -B -o /data/data/com.android.shell
 import /vendor/etc/init/hw/init.ussrd.rc
 
 # Thie yields each tegra wdt expiration to be at 30 secs and fourth expiration for reboot at 120 secs.
-service watchdogd /system/watchdogd 10 110
+service watchdogd /system/bin/watchdogd 10 110
     class core
     seclabel u:r:watchdogd:s0
