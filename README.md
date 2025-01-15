@@ -16,7 +16,7 @@
 | Release Date            | July 29, 2014                     |
 
 ## Device Picture
-![Nvidia SHIELD Tablet ](http://shield.nvidia.co.uk/images/home-page-sections/shield-tablet-controller-header-image.png "Nvidia SHIELD Tablet")
+![Nvidia MOCHA Tablet](http://shield.nvidia.co.uk/images/home-page-sections/shield-tablet-controller-header-image.png)
 
 ## Copyright
 
